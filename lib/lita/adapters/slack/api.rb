@@ -71,6 +71,7 @@ module Lita
 
         def rtm_start
           response_data = call_api("rtm.start")
+          log.info("Can you HEAR ME?!!!?!?")
 
           TeamData.new(
             SlackIM.from_data_array(response_data["ims"]),
