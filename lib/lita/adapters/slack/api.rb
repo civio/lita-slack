@@ -75,7 +75,7 @@ module Lita
           TeamData.new(
             SlackIM.from_data_array(response_data["ims"]),
             SlackUser.from_data(response_data["self"]),
-            SlackUser.from_data_array(response_data["users"]),
+            [],
             [],
             response_data["url"],
           )
