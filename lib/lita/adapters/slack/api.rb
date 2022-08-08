@@ -73,10 +73,10 @@ module Lita
           response_data = call_api("rtm.connect")
 
           TeamData.new(
-            nil,
+            [],
             SlackUser.from_data(response_data["self"]),
-            nil,
-            nil,
+            [],
+            [],
             response_data["url"],
           )
         end
