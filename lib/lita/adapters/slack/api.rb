@@ -70,12 +70,155 @@ module Lita
         end
 
         def rtm_start
-          response_data = call_api("rtm.start")
-          Lita.logger.info("Can you HEAR ME?!!!?!?")
-          Lita.logger.info(response_data["ims"])
+          response_data = call_api("rtm.connect")
+          ims_data = [{
+            "id" => "D9RHN7RKJ",
+            "created" => 1521471026,
+            "is_archived" => false,
+            "is_im" => true,
+            "is_org_shared" => false,
+            "context_team_id" => "T02AY8YGS",
+            "user" => "USLACKBOT",
+            "last_read" => "0000000000.000000",
+            "is_open" => true,
+            "has_pins" => false,
+            "priority" => 0
+          }, {
+            "id" => "D9RHN86JU",
+            "created" => 1521471027,
+            "is_archived" => false,
+            "is_im" => true,
+            "is_org_shared" => false,
+            "context_team_id" => "T02AY8YGS",
+            "user" => "U037Y9EPP",
+            "last_read" => "1551873825.000100",
+            "is_open" => false,
+            "has_pins" => false,
+            "priority" => 0
+          }, {
+            "id" => "D9RLMRF5F",
+            "created" => 1521471027,
+            "is_archived" => false,
+            "is_im" => true,
+            "is_org_shared" => false,
+            "context_team_id" => "T02AY8YGS",
+            "user" => "U13D95KAR",
+            "last_read" => "1569938868.001600",
+            "is_open" => false,
+            "has_pins" => false,
+            "priority" => 0
+          }, {
+            "id" => "D9S4ML9EX",
+            "created" => 1521471027,
+            "is_archived" => false,
+            "is_im" => true,
+            "is_org_shared" => false,
+            "context_team_id" => "T02AY8YGS",
+            "user" => "U634LTEBW",
+            "last_read" => "0000000000.000000",
+            "is_open" => true,
+            "has_pins" => false,
+            "priority" => 0
+          }, {
+            "id" => "D9S4MLCE7",
+            "created" => 1521471027,
+            "is_archived" => false,
+            "is_im" => true,
+            "is_org_shared" => false,
+            "context_team_id" => "T02AY8YGS",
+            "user" => "U03QLNQ1X",
+            "last_read" => "1574869991.001600",
+            "is_open" => true,
+            "has_pins" => false,
+            "priority" => 0
+          }, {
+            "id" => "D9S4MLCTD",
+            "created" => 1521471027,
+            "is_archived" => false,
+            "is_im" => true,
+            "is_org_shared" => false,
+            "context_team_id" => "T02AY8YGS",
+            "user" => "U02AXFSBZ",
+            "last_read" => "1568213043.003500",
+            "is_open" => true,
+            "has_pins" => false,
+            "priority" => 0
+          }, {
+            "id" => "D9S6LKRB6",
+            "created" => 1521471027,
+            "is_archived" => false,
+            "is_im" => true,
+            "is_org_shared" => false,
+            "context_team_id" => "T02AY8YGS",
+            "user" => "U0B2F71MX",
+            "last_read" => "0000000000.000000",
+            "is_open" => false,
+            "has_pins" => false,
+            "priority" => 0
+          }, {
+            "id" => "D9S6LKYTW",
+            "created" => 1521471028,
+            "is_archived" => false,
+            "is_im" => true,
+            "is_org_shared" => false,
+            "context_team_id" => "T02AY8YGS",
+            "user" => "U02AXFRND",
+            "last_read" => "1536830191.000100",
+            "is_open" => true,
+            "has_pins" => false,
+            "priority" => 0
+          }, {
+            "id" => "D9S7JGW4A",
+            "created" => 1521471027,
+            "is_archived" => false,
+            "is_im" => true,
+            "is_org_shared" => false,
+            "context_team_id" => "T02AY8YGS",
+            "user" => "U02AYA5GZ",
+            "last_read" => "0000000000.000000",
+            "is_open" => true,
+            "has_pins" => false,
+            "priority" => 0
+          }, {
+            "id" => "D9SB2UVB7",
+            "created" => 1521471026,
+            "is_archived" => false,
+            "is_im" => true,
+            "is_org_shared" => false,
+            "context_team_id" => "T02AY8YGS",
+            "user" => "U02AY8YGU",
+            "last_read" => "1572017525.002100",
+            "is_open" => true,
+            "has_pins" => false,
+            "priority" => 0
+          }, {
+            "id" => "D9T8Z1ETH",
+            "created" => 1521471027,
+            "is_archived" => false,
+            "is_im" => true,
+            "is_org_shared" => false,
+            "context_team_id" => "T02AY8YGS",
+            "user" => "U0AKH5P3R",
+            "last_read" => "0000000000.000000",
+            "is_open" => false,
+            "has_pins" => false,
+            "priority" => 0
+          }, {
+            "id" => "DMNRQB3E2",
+            "created" => 1566467407,
+            "is_archived" => false,
+            "is_im" => true,
+            "is_org_shared" => false,
+            "context_team_id" => "T02AY8YGS",
+            "user" => "UMGER47NC",
+            "last_read" => "1566467408.000100",
+            "is_open" => true,
+            "has_pins" => false,
+            "priority" => 0
+          }]
 
           TeamData.new(
-            SlackIM.from_data_array(response_data["ims"]),
+            SlackIM.from_data_array(ims_data),
             SlackUser.from_data(response_data["self"]),
             [],
             [],
