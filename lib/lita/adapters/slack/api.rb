@@ -70,7 +70,10 @@ module Lita
         end
 
         def rtm_start
-          response_data = call_api("rtm.connect")
+          response_data = call_api("rtm.start")
+          Lita.logger.info(response_data["users"])
+          Lita.logger.info(response_data["groups"])
+          Lita.logger.info(response_data["channels"])
           ims_data = [{
             "id" => "D9RHN7RKJ",
             "created" => 1521471026,
