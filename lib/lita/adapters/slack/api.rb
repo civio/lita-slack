@@ -73,8 +73,7 @@ module Lita
           Lita.logger.info("Trying to connect...")
           rtm_response = call_api("rtm.connect")
           Lita.logger.info("Connected...")
-          # user_data = call_api("users.list")["members"]
-          user_data = []
+          user_data = call_api("users.list")["members"]
           Lita.logger.info("Got user data...")
           im_data = call_api("conversations.list", types: 'im')["channels"]
           Lita.logger.info("Got IM data...")
@@ -99,7 +98,7 @@ module Lita
         def call_api(method, post_data = {})
           response = connection.post(
             "https://slack.com/api/#{method}",
-            { token: config.token, limit: 200 }.merge(post_data)
+            { token: config.token, limit: 50 }.merge(post_data)
           )
 
           data = parse_response(response, method)
