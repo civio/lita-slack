@@ -74,8 +74,11 @@ module Lita
           rtm_response = call_api("rtm.connect")
           Lita.logger.info("Connected...")
           user_data = call_api("users.list")["members"]
+          Lita.logger.info("Got user data...")
           im_data = call_api("conversations.list", types: 'im')["channels"]
+          Lita.logger.info("Got IM data...")
           group_data = call_api("conversations.list", types: 'public_channel,private_channel')["channels"]
+          Lita.logger.info("Got group data...")
 
           TeamData.new(
             SlackIM.from_data_array(im_data),
@@ -84,6 +87,7 @@ module Lita
             SlackChannel.from_data_array(group_data),
             rtm_response["url"],
           )
+          Lita.logger.info("Done connecting...")
         end
 
         private
