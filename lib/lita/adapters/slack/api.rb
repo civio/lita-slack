@@ -88,7 +88,6 @@ module Lita
             SlackChannel.from_data_array(group_data),
             rtm_response["url"],
           )
-          Lita.logger.info("Done connecting...")
         end
 
         private
