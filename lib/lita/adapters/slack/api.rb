@@ -73,7 +73,8 @@ module Lita
           Lita.logger.info("Trying to connect...")
           rtm_response = call_api("rtm.connect")
           Lita.logger.info("Connected...")
-          user_data = call_api("users.list")["members"]
+          # user_data = call_api("users.list")["members"]
+          user_data = []
           Lita.logger.info("Got user data...")
           im_data = call_api("conversations.list", types: 'im')["channels"]
           Lita.logger.info("Got IM data...")
