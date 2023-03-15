@@ -70,9 +70,9 @@ module Lita
         end
 
         def rtm_start
-          Lita.logger.debug("Trying to connect...")
+          Lita.logger.info("Trying to connect...")
           rtm_response = call_api("rtm.connect")
-          Lita.logger.debug("Connected...")
+          Lita.logger.info("Connected...")
           user_data = call_api("users.list")["members"]
           im_data = call_api("conversations.list", types: 'im')["channels"]
           group_data = call_api("conversations.list", types: 'public_channel,private_channel')["channels"]
